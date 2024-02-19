@@ -61,7 +61,8 @@ def handle_message(event):
     #     line_bot_api.reply_message(event.reply_token, TextSendMessage(GPT_answer))
     # except:
     #     print(traceback.format_exc())
-    line_bot_api.reply_message(event.reply_token, TextSendMessage('測試測試'))
+    print("我就是要測試你不讓我提交搞闢?")
+    line_bot_api.reply_message(event.reply_token, TextSendMessage('測試看看怎麼都沒有成功呢 操'))
         
 
 @handler.add(PostbackEvent)
