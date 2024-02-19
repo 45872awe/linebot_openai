@@ -54,7 +54,7 @@ def callback():
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    msg = event.message.text
+    msg = event.message.text 
     # try:
     #     GPT_answer = GPT_response(msg)
     #     print(GPT_answer)
@@ -62,7 +62,7 @@ def handle_message(event):
     # except:
     #     print(traceback.format_exc())
     
-    line_bot_api.reply_message(event.reply_token, TextSendMessage('這樣應該有成功吧?'))
+    line_bot_api.reply_message(event.reply_token, TextSendMessage('那這樣呢??'))
         
 
 @handler.add(PostbackEvent)
