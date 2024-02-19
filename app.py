@@ -54,7 +54,9 @@ def callback():
         abort(400)
 
     return 'OK'
-
+@app.route("/heroku_wake_up")
+def heroku_wake_up():
+    return "Hey!Wake Up!!"
 
 @handler.add(MessageEvent, message=TextMessageContent)
 def handle_message(event):
