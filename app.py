@@ -15,7 +15,7 @@ import datetime
 import time
 import traceback
 #======python的函數庫==========
-import time
+
 import threading 
 import requests
 def wake_up_heroku():
@@ -38,9 +38,7 @@ handler = WebhookHandler(os.getenv('CHANNEL_SECRET'))
 # OPENAI API Key初始化設定
 # 監聽所有來自 /callback 的 Post Request
 
-@app.route("/heroku_wake_up")
-def heroku_wake_up():
-    return "Hey!Wake Up!!"
+
 @app.route("/callback", methods=['POST'])
 def callback():
     # get X-Line-Signature header value
@@ -62,7 +60,9 @@ def handle_message(event):
     msg = event.message.text
     line_bot_api.reply_message(event.reply_token, TextSendMessage('你所使用的OPENAI API key額度可能已經超過，請於後台Log內確認錯誤訊息'))
         
-
+@app.route("/heroku_wake_up")
+def heroku_wake_up():
+    return "Hey!Wake Up!!"
 @handler.add(PostbackEvent)
 def handle_message(event):
     print(event.postback.data)
