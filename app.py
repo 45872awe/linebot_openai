@@ -30,8 +30,6 @@ def wake_up_heroku():
 
 threading.Thread(target=wake_up_heroku).start()
 app = Flask(__name__)
-
-app = Flask(__name__)
 static_tmp_path = os.path.join(os.path.dirname(__file__), 'static', 'tmp')
 # Channel Access Token
 line_bot_api = LineBotApi(os.getenv('CHANNEL_ACCESS_TOKEN'))
@@ -39,6 +37,10 @@ line_bot_api = LineBotApi(os.getenv('CHANNEL_ACCESS_TOKEN'))
 handler = WebhookHandler(os.getenv('CHANNEL_SECRET'))
 # OPENAI API Key初始化設定
 # 監聽所有來自 /callback 的 Post Request
+
+@app.route("/heroku_wake_up")
+def heroku_wake_up():
+    return "Hey!Wake Up!!"
 @app.route("/callback", methods=['POST'])
 def callback():
     # get X-Line-Signature header value
