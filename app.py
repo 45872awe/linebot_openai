@@ -22,7 +22,7 @@ import threading
 import requests
 def wake_up_heroku():
     while 1==1:
-        url = 'https://line-bot-opai.onrender.com' + 'heroku_wake_up'
+        url = 'https://line-bot-opai.onrender.com/' + 'heroku_wake_up'
         res = requests.get(url)
         if res.status_code==200:
             print('喚醒heroku成功')
