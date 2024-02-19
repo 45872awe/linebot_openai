@@ -29,7 +29,9 @@ def wake_up_heroku():
         time.sleep(28*60)
 
 threading.Thread(target=wake_up_heroku).start()
-app = Flask(__name__)
+
+
+app = Flask(__name__,template_folder='templates')
 static_tmp_path = os.path.join(os.path.dirname(__file__), 'static', 'tmp')
 # Channel Access Token
 line_bot_api = LineBotApi(os.getenv('CHANNEL_ACCESS_TOKEN'))
